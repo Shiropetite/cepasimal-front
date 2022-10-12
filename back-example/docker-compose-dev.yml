@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  session:
+    container_name: oc-redis
+    image: redis:alpine
+    ports:
+      - '6379:6379'
+  db:
+    container_name: oc-db
+    image: postgres:alpine
+    environment:
+      - POSTGRES_USER=${MIKRO_ORM_USER}
+      - POSTGRES_PASSWORD=${MIKRO_ORM_PASSWORD}
+    ports:
+      - '5432:5432'
