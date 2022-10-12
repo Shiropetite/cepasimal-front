@@ -15,8 +15,6 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v3.5.0
         
-      - name: Go to back project directory
-        run: cd back
-        
       - name: install dependencies
         run: npm install
+        working-directory: ./back
