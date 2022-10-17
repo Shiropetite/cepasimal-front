@@ -1,5 +1,15 @@
 import { createApp } from 'vue'
-import './style.css'
+import './css/style.css'
 import App from './App.vue'
+import router from "./router";
 
-createApp(App).mount('#app')
+import ToggleButton from './components/ToggleButton.vue';
+
+const app = createApp(App);
+app.use(router);
+
+app.component("ToggleButton", ToggleButton);
+
+app.mount('#app');
+
+
