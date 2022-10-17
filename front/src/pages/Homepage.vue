@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import LessonCard from './LessonCard.vue';
+import LessonCard from '@/components/LessonCard.vue';
 </script>
 
 <template>

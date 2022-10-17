@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import Homepage from './components/Homepage.vue';
+import { RouterView } from 'vue-router';
 import HomepageHeader from './components/HomepageHeader.vue';
 </script>
 
 <template>
   <HomepageHeader />
-  <Homepage />
+  <router-view />
 </template>
 
 <style scoped>
