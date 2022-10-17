@@ -3,7 +3,7 @@
     <div class="title">Cépasimal</div>
 
     <div class="row items-center justify-between gap-28">
-      <dark-mode-toggle />
+      <toggle-button />
       <button class="admin">
         <img src="../assets/admin-icon.svg" />
         Admin

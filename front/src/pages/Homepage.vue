@@ -24,7 +24,6 @@ import LessonCard from '@/components/LessonCard.vue';
     </div>
 
     <div class="content">
-
       <div>
         <div class="title">Fiches</div>
         <LessonCard
@@ -33,6 +32,11 @@ import LessonCard from '@/components/LessonCard.vue';
           lastUpdate="A l'instant"
           duration="15min"
         />
+        <div class="pagination">
+          <img src="../assets/left-arrow-icon.svg" />
+          <span style="color: #0586FF;">1</span> 2
+          <img src="../assets/right-arrow-icon.svg" />
+        </div>
       </div>
 
       <div>
@@ -43,6 +47,11 @@ import LessonCard from '@/components/LessonCard.vue';
           lastUpdate="Il y a 1 mois"
           duration="1h 30min"
         />
+        <div class="pagination">
+          <img src="../assets/left-arrow-icon.svg" />
+          <span style="color: #0586FF;">1</span> 2
+          <img src="../assets/right-arrow-icon.svg" />
+        </div>
       </div>
     </div>
   </div>
@@ -93,11 +102,21 @@ import LessonCard from '@/components/LessonCard.vue';
     margin-top: 16px;
 
     .title {
+      margin-bottom: 20px;
       font-weight: 700;
       font-size: 22px;
-      margin-bottom: 20px;
       color: #110E1A;
     }
+  }
+
+  .pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    padding-top: 22px;
+    font-weight: 700;
+    font-size: 16px;
   }
 }
 </style>

@@ -1,0 +1,22 @@
+<template>
+  <div class="footer">
+    <div>Ce site web a pour but de vous aider à apprendre certains langages à l'aide de fiches et d'exercices / projets</div>
+    <div>Informations sur nous</div>
+    <div>Signaler une erreur</div>
+  </div>
+</template>
+
+<style lang="scss" scoped>
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 22px 40px;
+  background: #FFFFFF;
+  border: 2px solid #DDDDDD;
+}
+</style>

@@ -1,12 +1,11 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router';
-import HomepageHeader from './components/HomepageHeader.vue';
+import AppHeader from '@/components/AppHeader.vue';
+import AppFooter from '@/components/AppFooter.vue';
 </script>
 
 <template>
-  <HomepageHeader />
+  <app-header />
   <router-view />
+  <app-footer />
 </template>
-
-<style scoped>
-</style>
