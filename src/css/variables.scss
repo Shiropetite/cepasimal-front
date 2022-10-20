@@ -1,12 +1,27 @@
 // Colors
+$primary: #0586FF;
+
 // Light theme
-$l-primary: #0586FF;
-$l-light: #FFFFFF;
-$l-dark: #110E1A;
+$l-accent: #110E1A;
+$l-background: #FFFFFF;
 
 // Dark theme
-$d-primary: #0586FF;
 $d-accent: #162B52;
 $d-white: #FFFFFF;
-$d-less-dark : #1D1F31;
-$d-dark: #110E1A;
+$d-background-card : #1D1F31;
+$d-background: #110E1A;
+
+:root {
+  --primary: #{ $primary };
+  --accent: #{ $l-accent };
+  --background: #{ $l-background };
+  --background-card: #{ $l-background };
+  --text-color: #{ $l-accent };
+}
+
+.dark {
+  --accent: #{ $d-accent };
+  --background: #{ $d-background };
+  --background-card: #{ $d-background-card };
+  --text-color: #{ $d-white };
+}

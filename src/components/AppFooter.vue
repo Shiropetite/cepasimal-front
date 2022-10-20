@@ -16,6 +16,6 @@
   left: 0;
   right: 0;
   padding: 22px 40px;
-  border: 2px solid #DDDDDD;
+  border-top: 2px solid var(--accent);
 }
 </style>

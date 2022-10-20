@@ -37,7 +37,8 @@ const toggleDark = useToggle(isDark)
     justify-content: space-between;
     gap: 10px;
     padding: 8px 20px 8px 8px;
-    background: #FFFFFF;
+    color: var(--text-color);
+    background: var(--background-card);
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
     border: none;
     border-radius: 30px;

@@ -52,6 +52,10 @@ input[type="checkbox"] {
     transition: all .25s cubic-bezier(.5, -.6, .5, 1.6);
 }
 
+.active .toggle__switch {
+  background: #f0f0f0;
+}
+
 .toggle__switch::after {
     background: white;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);

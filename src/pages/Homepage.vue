@@ -63,8 +63,8 @@ import LessonCard from '@/components/LessonCard.vue';
   align-items: center;
   justify-content: center;
   height: 160px;
-  color: #FFFFFF;
-  background: #110E1A;
+  color: white;
+  background: var(--accent);
   font-weight: 700;
   font-size: 22px;
 }
@@ -78,7 +78,7 @@ import LessonCard from '@/components/LessonCard.vue';
     justify-content: space-between;
     width: 202px;
     padding: 12px;
-    color: #FFFFFF;
+    color: white;
     background: #0586FF;
     border: 2px solid #0586FF;
     border-radius: 8px;
@@ -90,8 +90,7 @@ import LessonCard from '@/components/LessonCard.vue';
     gap: 12px;
     width: 312px;
     padding: 12px;
-    color: #110E1A;
-    background: #FFFFFF;
+    background: var(--background-card);
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
     border-radius: 8px;
   }
@@ -105,7 +104,6 @@ import LessonCard from '@/components/LessonCard.vue';
       margin-bottom: 20px;
       font-weight: 700;
       font-size: 22px;
-      color: #110E1A;
     }
   }
 

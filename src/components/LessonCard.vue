@@ -16,11 +16,11 @@ defineProps<{
         <div>{{ desc }}</div>
       </div>
       <div class="row items-center gap-28 mt-12">
-        <div>
+        <div class="row items-center gap-8">
           <img src="../assets/update-icon.svg" />
           {{ lastUpdate }}
         </div>
-        <div>
+        <div class="row items-center gap-8">
           <img src="../assets/duration-icon.svg" />
           {{ duration }}
         </div>
@@ -35,14 +35,14 @@ defineProps<{
   align-items: center;
   width: 550px;
   height: 86px;
-  background: #FFFFFF;
+  background: var(--background-card);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.12);
   border-radius: 8px;
 
   .illustration {
     width: 128px;
     height: 86px;
-    background-color: black;
+    background-color: var(--accent);
   }
 
   .infos {
@@ -51,7 +51,6 @@ defineProps<{
     .title {
       font-weight: 700;
       font-size: 16px;
-      color: #110E1A;
     }
   }
 }
