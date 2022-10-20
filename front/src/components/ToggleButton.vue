@@ -1,16 +1,16 @@
 <script lang="ts" setup>
-import { ref } from 'vue';
-
-const currentState = ref(true);
+import { useToggle, useDark } from '@vueuse/core';
+const isDark = useDark()
+const toggleDark = useToggle(isDark)
 </script>
 
 <template>
- <label :class="{'active': currentState}" class="toggle__button">
+  <label :class="{ 'active': isDark }" class="toggle__button" >
     <span class="toggle__label">Dark mode</span>
 
-    <input type="checkbox" v-model="currentState">
+    <input type="checkbox" :checked="isDark" @click="toggleDark()">
     <span class="toggle__switch"></span>
-</label>
+  </label>
 </template>
 
 <style lang="scss" scoped>

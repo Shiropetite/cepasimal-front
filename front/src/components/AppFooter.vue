@@ -16,7 +16,6 @@
   left: 0;
   right: 0;
   padding: 22px 40px;
-  background: #FFFFFF;
   border: 2px solid #DDDDDD;
 }
 </style>

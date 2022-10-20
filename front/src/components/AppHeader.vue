@@ -1,9 +1,15 @@
+<script lang="ts" setup>
+import { useToggle, useDark } from '@vueuse/core';
+const isDark = useDark()
+const toggleDark = useToggle(isDark)
+</script>
+
 <template>
   <div class="header">
     <div class="title">Cépasimal</div>
 
     <div class="row items-center justify-between gap-28">
-      <toggle-button />
+      <toggle-button label="Dark mode" />
       <button class="admin">
         <img src="../assets/admin-icon.svg" />
         Admin
