@@ -34,6 +34,7 @@ jobs:
         with:
           username: titeshi
           password: u@!8t2AcJ7
+          logout: true
 
       - name: Extract metadata (tags, labels) for Docker
         id: meta
