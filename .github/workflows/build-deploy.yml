@@ -41,14 +41,9 @@ jobs:
           username: titeshi
           password: u@!8t2AcJ7
       
-      - name: Extract metadata (tags, labels) for Docker
-        id: meta
-        uses: docker/metadata-action@v4.1.1
-        with:
-          images: titeshi/cepasimal-front
-      
       - name: Build and push Docker image
         uses: docker/build-push-action@v3
         with:
+          image: titeshi/cepasimal-front
           push: true
           tags: develop  
