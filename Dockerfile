@@ -4,7 +4,7 @@ WORKDIR /build
 RUN ls
 COPY package*.json ./
 RUN ls
-RUN npm ci
+RUN npm install
 RUN ls
 COPY . ./
 RUN ls
