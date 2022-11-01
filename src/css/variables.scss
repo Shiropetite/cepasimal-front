@@ -4,18 +4,21 @@ $primary: #0586FF;
 // Light theme
 $l-accent: #110E1A;
 $l-background: #FFFFFF;
+$l-background-hover: #F5F5F5;
 
 // Dark theme
 $d-accent: #162B52;
 $d-white: #FFFFFF;
 $d-background-card : #1D1F31;
 $d-background: #110E1A;
+$d-background-hover: #2a2d47;
 
 :root {
   --primary: #{ $primary };
   --accent: #{ $l-accent };
   --background: #{ $l-background };
   --background-card: #{ $l-background };
+  --background-hover: #{ $l-background-hover };
   --text-color: #{ $l-accent };
 }
 
@@ -23,5 +26,6 @@ $d-background: #110E1A;
   --accent: #{ $d-accent };
   --background: #{ $d-background };
   --background-card: #{ $d-background-card };
+  --background-hover: #{ $d-background-hover };
   --text-color: #{ $d-white };
 }

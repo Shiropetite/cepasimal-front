@@ -6,6 +6,12 @@ body {
   font-size: 14px;
   background-color: var(--background);
   color: var(--text-color);
+  transition: all linear 0.1s;
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-color);
 }
 
 .row {

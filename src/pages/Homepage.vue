@@ -6,9 +6,7 @@ import LessonCard from '@/components/LessonCard.vue';
   <div class="banner">
     Insérez un truc sympa
   </div>
-
   <div class="selection">
-
     <div class="row items-center justify-between">
       <div class="techlist">
         <div class="row items-center justify-between gap-12">
@@ -22,30 +20,30 @@ import LessonCard from '@/components/LessonCard.vue';
         <div>Rechercher</div>
       </div>
     </div>
-
     <div class="content">
       <div>
         <div class="title">Fiches</div>
-        <LessonCard
-          title="Environnement de travail (Eclipse)"
-          desc="Lorem ipsum dolor sit amet"
-          lastUpdate="A l'instant"
-          duration="15min"
-        />
+        <a href="/lesson/1">
+          <LessonCard
+            title="Environnement de travail (Eclipse)"
+            desc="Lorem ipsum dolor sit amet"
+            lastUpdate="A l'instant"
+            timeToRead="15min"
+          />
+        </a>
         <div class="pagination">
           <img src="../assets/left-arrow-icon.svg" />
           <span style="color: #0586FF;">1</span> 2
           <img src="../assets/right-arrow-icon.svg" />
         </div>
       </div>
-
       <div>
         <div class="title">Projet / Exercices</div>
         <LessonCard
           title="Jeu tour par tour - Sprint 1"
           desc="Lorem ipsum dolor sit amet"
           lastUpdate="Il y a 1 mois"
-          duration="1h 30min"
+          timeToRead="1h 30min"
         />
         <div class="pagination">
           <img src="../assets/left-arrow-icon.svg" />
@@ -79,8 +77,8 @@ import LessonCard from '@/components/LessonCard.vue';
     width: 202px;
     padding: 12px;
     color: white;
-    background: #0586FF;
-    border: 2px solid #0586FF;
+    background: $primary;
+    border: 2px solid $primary;
     border-radius: 8px;
   }
 

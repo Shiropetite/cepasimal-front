@@ -26,7 +26,7 @@ const toggleDark = useToggle(isDark)
   height:12px;
   border-radius:6px;
   width:36px;
-  background: #BFCBD9;
+  background: #F5F5F5;
   position:relative;
   margin-left: 12px;
   transition: all .25s;
@@ -63,6 +63,6 @@ input[type="checkbox"] {
 
 .active .toggle__switch::after {
     left: 18px;
-    background: #0586FF;
+    background: $primary;
 }
 </style>

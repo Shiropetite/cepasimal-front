@@ -3,7 +3,7 @@ defineProps<{
   title: string,
   desc: string,
   lastUpdate: string,
-  duration: string
+  timeToRead: string
 }>()
 </script>
 
@@ -22,7 +22,7 @@ defineProps<{
         </div>
         <div class="row items-center gap-8">
           <img src="../assets/duration-icon.svg" />
-          {{ duration }}
+          {{ timeToRead }}
         </div>
       </div>
     </div>
@@ -38,6 +38,7 @@ defineProps<{
   background: var(--background-card);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.12);
   border-radius: 8px;
+  transition: all linear 0.1s;
 
   .illustration {
     width: 128px;
@@ -53,5 +54,9 @@ defineProps<{
       font-size: 16px;
     }
   }
+}
+
+.card:hover {
+  background-color: var(--background-hover);
 }
 </style>
