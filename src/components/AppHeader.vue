@@ -6,14 +6,16 @@ const toggleDark = useToggle(isDark)
 
 <template>
   <div class="header">
-    <div class="title">Cépasimal</div>
+    <a href="/"><div class="title">Cépasimal</div></a>
 
     <div class="row items-center justify-between gap-28">
       <toggle-button label="Dark mode" />
-      <button class="admin">
-        <img src="../assets/admin-icon.svg" />
-        Admin
-      </button>
+      <a href="/">
+        <button class="admin">
+          <img src="../assets/admin-icon.svg" />
+          Admin
+        </button>
+      </a>
     </div>
   </div>
 </template>
@@ -44,6 +46,10 @@ const toggleDark = useToggle(isDark)
     border-radius: 30px;
     font-weight: 700;
     font-size: 14px;
+  }
+
+  .admin:hover {
+    background-color: var(--background-hover);
   }
 }
 </style>
