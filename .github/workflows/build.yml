@@ -17,6 +17,12 @@ jobs:
         
       - name: install dependencies
         run: npm install
+
+      - name: Check lint
+        run: npm run lint
+
+      - name: Check test
+        run: npm run test:unit
         
       - name: Build front
         run: npm run build

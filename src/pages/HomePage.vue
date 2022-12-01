@@ -1,11 +1,9 @@
 <script setup lang="ts">
-import LessonCard from '@/components/LessonCard.vue';
+import LessonCard from "@/components/LessonCard.vue";
 </script>
 
 <template>
-  <div class="banner">
-    Insérez un truc sympa
-  </div>
+  <div class="banner">Insérez un truc sympa</div>
   <div class="selection">
     <div class="row items-center justify-between">
       <div class="techlist">
@@ -33,7 +31,7 @@ import LessonCard from '@/components/LessonCard.vue';
         </a>
         <div class="pagination">
           <img src="../assets/left-arrow-icon.svg" />
-          <span style="color: #0586FF;">1</span> 2
+          <span style="color: #0586ff">1</span> 2
           <img src="../assets/right-arrow-icon.svg" />
         </div>
       </div>
@@ -47,7 +45,7 @@ import LessonCard from '@/components/LessonCard.vue';
         />
         <div class="pagination">
           <img src="../assets/left-arrow-icon.svg" />
-          <span style="color: #0586FF;">1</span> 2
+          <span style="color: #0586ff">1</span> 2
           <img src="../assets/right-arrow-icon.svg" />
         </div>
       </div>
@@ -77,8 +75,8 @@ import LessonCard from '@/components/LessonCard.vue';
     width: 202px;
     padding: 12px;
     color: white;
-    background: $primary;
-    border: 2px solid $primary;
+    background: var(--primary);
+    border: 2px solid var(--primary);
     border-radius: 8px;
   }
 
