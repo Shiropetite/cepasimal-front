@@ -1,9 +1,9 @@
 <script setup lang="ts">
 defineProps<{
   title: string,
-  desc: string,
-  lastUpdate: string,
-  timeToRead: string
+  desc?: string,
+  lastUpdated?: string,
+  timeToRead?: string
 }>()
 </script>
 
@@ -18,7 +18,7 @@ defineProps<{
       <div class="row items-center gap-28 mt-12">
         <div class="row items-center gap-8">
           <img src="../assets/update-icon.svg" />
-          {{ lastUpdate }}
+          {{ lastUpdated }}
         </div>
         <div class="row items-center gap-8">
           <img src="../assets/duration-icon.svg" />

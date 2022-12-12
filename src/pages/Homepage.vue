@@ -1,5 +1,16 @@
 <script setup lang="ts">
+import { onMounted, ref, type Ref } from 'vue';
 import LessonCard from '@/components/LessonCard.vue';
+import { getLessonsByTech, getPracticesByTech } from '@/services/LessonService';
+import type { Lesson } from '@/models/Lesson';
+
+const lessons: Ref<Lesson[]> = ref([]);
+const practices: Ref<Lesson[]> = ref([]);
+
+onMounted(async () => {
+  lessons.value = await getLessonsByTech('java', 0);
+  practices.value = await getPracticesByTech('java', 0);
+});
 </script>
 
 <template>
@@ -23,12 +34,12 @@ import LessonCard from '@/components/LessonCard.vue';
     <div class="content">
       <div>
         <div class="title">Fiches</div>
-        <a href="/lesson/1">
+        <a :href="`/lessons/${index}`" v-for="(lesson, index) in lessons" :key="index">
           <LessonCard
-            title="Environnement de travail (Eclipse)"
-            desc="Lorem ipsum dolor sit amet"
-            lastUpdate="A l'instant"
-            timeToRead="15min"
+            :title="lesson.title"
+            :desc="lesson.description"
+            :lastUpdated="lesson.lastUpdated"
+            :timeToRead="lesson.timeToRead"
           />
         </a>
         <div class="pagination">
@@ -39,12 +50,14 @@ import LessonCard from '@/components/LessonCard.vue';
       </div>
       <div>
         <div class="title">Projet / Exercices</div>
-        <LessonCard
-          title="Jeu tour par tour - Sprint 1"
-          desc="Lorem ipsum dolor sit amet"
-          lastUpdate="Il y a 1 mois"
-          timeToRead="1h 30min"
-        />
+        <a :href="`/practices/${index}`" v-for="(practice, index) in practices" :key="index">
+          <LessonCard
+            :title="practice.title"
+            :desc="practice.description"
+            :lastUpdated="practice.lastUpdated"
+            :timeToRead="practice.timeToRead"
+          />
+        </a>
         <div class="pagination">
           <img src="../assets/left-arrow-icon.svg" />
           <span style="color: #0586FF;">1</span> 2
