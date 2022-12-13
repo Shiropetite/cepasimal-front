@@ -1,22 +1,20 @@
 <script setup lang="ts">
-import { onMounted, ref, type Ref } from 'vue';
-import LessonCard from '@/components/LessonCard.vue';
-import { getLessonsByTech, getPracticesByTech } from '@/services/LessonService';
-import type { Lesson } from '@/models/Lesson';
+import { onMounted, ref, type Ref } from "vue";
+import LessonCard from "@/components/LessonCard.vue";
+import { getLessonsByTech, getPracticesByTech } from "@/services/LessonService";
+import type { Lesson } from "@/models/Lesson";
 
 const lessons: Ref<Lesson[]> = ref([]);
 const practices: Ref<Lesson[]> = ref([]);
 
 onMounted(async () => {
-  lessons.value = await getLessonsByTech('java', 0);
-  practices.value = await getPracticesByTech('java', 0);
+  lessons.value = await getLessonsByTech("java", 0);
+  practices.value = await getPracticesByTech("java", 0);
 });
 </script>
 
 <template>
-  <div class="banner">
-    Insérez un truc sympa
-  </div>
+  <div class="banner">Insérez un truc sympa</div>
   <div class="selection">
     <div class="row items-center justify-between">
       <div class="techlist">
@@ -34,7 +32,11 @@ onMounted(async () => {
     <div class="content">
       <div>
         <div class="title">Fiches</div>
-        <a :href="`/lessons/${index}`" v-for="(lesson, index) in lessons" :key="index">
+        <a
+          :href="`/lessons/${index}`"
+          v-for="(lesson, index) in lessons"
+          :key="index"
+        >
           <LessonCard
             :title="lesson.title"
             :desc="lesson.description"
@@ -44,13 +46,17 @@ onMounted(async () => {
         </a>
         <div class="pagination">
           <img src="../assets/left-arrow-icon.svg" />
-          <span style="color: #0586FF;">1</span> 2
+          <span style="color: #0586ff">1</span> 2
           <img src="../assets/right-arrow-icon.svg" />
         </div>
       </div>
       <div>
         <div class="title">Projet / Exercices</div>
-        <a :href="`/practices/${index}`" v-for="(practice, index) in practices" :key="index">
+        <a
+          :href="`/practices/${index}`"
+          v-for="(practice, index) in practices"
+          :key="index"
+        >
           <LessonCard
             :title="practice.title"
             :desc="practice.description"
@@ -60,7 +66,7 @@ onMounted(async () => {
         </a>
         <div class="pagination">
           <img src="../assets/left-arrow-icon.svg" />
-          <span style="color: #0586FF;">1</span> 2
+          <span style="color: #0586ff">1</span> 2
           <img src="../assets/right-arrow-icon.svg" />
         </div>
       </div>

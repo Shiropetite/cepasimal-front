@@ -1,9 +1,3 @@
-<script lang="ts" setup>
-import { useToggle, useDark } from '@vueuse/core';
-const isDark = useDark()
-const toggleDark = useToggle(isDark)
-</script>
-
 <template>
   <div class="header">
     <a href="/"><div class="title">Cépasimal</div></a>
