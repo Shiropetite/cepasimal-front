@@ -3,7 +3,7 @@ import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
 
-import "./css/style.scss";
+import "./css/index.scss";
 
 import ToggleButton from "./components/ToggleButton.vue";
 

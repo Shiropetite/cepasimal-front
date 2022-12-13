@@ -1,6 +1,8 @@
 name: Build & Deploy
 
 on:
+  pull_request:
+    branches: [ develop ]
   push:
     branches: [ develop ]
     
@@ -12,17 +14,53 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3.1.0
         
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v3.5.0
+      - name: Setup Node
+        uses: actions/setup-node@v3.5.1
+        with:
+          node-version: '18.12.1'
         
-      - name: install dependencies
+      - name: Install dependencies
         run: npm install
         
       - name: Build front
         run: npm run build
+
+  lint: 
+    if: ${{github.event_name == 'pull_request'}}
+    needs: [build]
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3.1.0
+
+      - name: Install Eslint
+        run: npm install eslint
+
+      - name: Check lint
+        run: npm run lint
+
+  test:
+    if: ${{github.event_name == 'pull_request'}}
+    needs: [lint]
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.5.0
+
+      - name: Install Cypress
+        run: npm install cypress
+
+      - name: Check unit test
+        run: npm run test:unit
+
+      - name: Check e2e test
+        run: npm run test:e2e
   
   deploy:
-    needs: build
+    if: ${{github.event_name == 'push'}}
+    needs: [build]
     runs-on: ubuntu-22.04
     
     steps:
