@@ -7,7 +7,7 @@ $l-background: #FFFFFF;
 $l-background-hover: #F5F5F5;
 
 // Dark theme
-$d-accent: #162B52;
+$d-accent: #566ea9;
 $d-white: #FFFFFF;
 $d-background-card : #1D1F31;
 $d-background: #110E1A;
@@ -28,4 +28,8 @@ $d-background-hover: #2a2d47;
   --background-card: #{ $d-background-card };
   --background-hover: #{ $d-background-hover };
   --text-color: #{ $d-white };
+
+  .svg {
+    filter: invert(100%);
+  }
 }

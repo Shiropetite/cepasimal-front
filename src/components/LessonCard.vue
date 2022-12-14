@@ -17,11 +17,11 @@ defineProps<{
       </div>
       <div class="row items-center gap-28 mt-12">
         <div class="row items-center gap-8">
-          <img src="../assets/update-icon.svg" />
+          <img class="svg" src="../assets/update-icon.svg" />
           {{ lastUpdated }}
         </div>
         <div class="row items-center gap-8">
-          <img src="../assets/duration-icon.svg" />
+          <img class="svg" src="../assets/duration-icon.svg" />
           {{ timeToRead }}
         </div>
       </div>
@@ -33,7 +33,7 @@ defineProps<{
 .card {
   display: flex;
   align-items: center;
-  width: 550px;
+  width: 100%;
   height: 86px;
   background: var(--background-card);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.12);
@@ -41,9 +41,10 @@ defineProps<{
   transition: all linear 0.1s;
 
   .illustration {
-    width: 128px;
+    width: 160px;
     height: 86px;
     background-color: var(--accent);
+    border-radius: 8px 0 0 8px;
   }
 
   .infos {

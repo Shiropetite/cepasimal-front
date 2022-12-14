@@ -6,7 +6,7 @@ body {
   font-size: 14px;
   background-color: var(--background);
   color: var(--text-color);
-  transition: all linear 0.1s;
+  //transition: all linear 0.1s;
 }
 
 a {
@@ -35,6 +35,10 @@ a {
   justify-content: space-between;
 }
 
+.wrap {
+  flex-wrap: wrap;
+}
+
 .gap-28 {
   gap: 28px;
 }
@@ -50,3 +54,27 @@ a {
 .mt-12 {
   margin-top: 12px;
 }
+
+.col-md-6 {
+  width: 48%;
+
+  @media (max-width: 800px) {
+    width: 100%;
+  }
+ 
+}
+
+.col {
+  width: 100%;
+}
+
+.page {
+  max-width: 1600px;
+  width: 100%;
+  background-color: var(--background);
+}
+
+button {
+  cursor: pointer;
+}
+

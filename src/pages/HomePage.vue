@@ -14,60 +14,67 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="banner">Insérez un truc sympa</div>
-  <div class="selection">
-    <div class="row items-center justify-between">
-      <div class="techlist">
-        <div class="row items-center justify-between gap-12">
-          <img src="../assets/tech-icon.svg" />
-          Tout
+  <div>
+    <div class="banner">Le java c'est pas si mal (promis)</div>
+
+    <div class="selection row justify-center">
+      <div class="page">
+        <div class="row items-center justify-between">
+          <div class="techlist">
+            <div class="row items-center justify-between gap-12">
+              <img src="../assets/tech-icon.svg" />
+              Tout
+            </div>
+            <img src="../assets/down-arrow-icon.svg" />
+          </div>
+          <div class="searchbar">
+            <img src="../assets/search-icon.svg" />
+            <div>Rechercher</div>
+          </div>
         </div>
-        <img src="../assets/down-arrow-icon.svg" />
-      </div>
-      <div class="searchbar">
-        <img src="../assets/search-icon.svg" />
-        <div>Rechercher</div>
-      </div>
-    </div>
-    <div class="content">
-      <div>
-        <div class="title">Fiches</div>
-        <a
-          :href="`/lessons/${index}`"
-          v-for="(lesson, index) in lessons"
-          :key="index"
-        >
-          <LessonCard
-            :title="lesson.title"
-            :desc="lesson.description"
-            :lastUpdated="lesson.lastUpdated"
-            :timeToRead="lesson.timeToRead"
-          />
-        </a>
-        <div class="pagination">
-          <img src="../assets/left-arrow-icon.svg" />
-          <span style="color: #0586ff">1</span> 2
-          <img src="../assets/right-arrow-icon.svg" />
-        </div>
-      </div>
-      <div>
-        <div class="title">Projet / Exercices</div>
-        <a
-          :href="`/practices/${index}`"
-          v-for="(practice, index) in practices"
-          :key="index"
-        >
-          <LessonCard
-            :title="practice.title"
-            :desc="practice.description"
-            :lastUpdated="practice.lastUpdated"
-            :timeToRead="practice.timeToRead"
-          />
-        </a>
-        <div class="pagination">
-          <img src="../assets/left-arrow-icon.svg" />
-          <span style="color: #0586ff">1</span> 2
-          <img src="../assets/right-arrow-icon.svg" />
+
+        <div class="content wrap">
+          <div class="column col-md-6" style="gap: 16px">
+            <div class="title">Fiches</div>
+            <a
+              :href="`/lessons/${index}`"
+              v-for="(lesson, index) in lessons"
+              :key="index"
+            >
+              <LessonCard
+                :title="lesson.title"
+                :desc="lesson.description"
+                :lastUpdated="lesson.lastUpdated"
+                :timeToRead="lesson.timeToRead"
+              />
+            </a>
+            <div class="pagination">
+              <img class="svg" src="../assets/left-arrow-icon.svg" />
+              <span style="color: #0586ff">1</span> 2
+              <img class="svg" src="../assets/right-arrow-icon.svg" />
+            </div>
+          </div>
+
+          <div class="column col-md-6" style="gap: 16px">
+            <div class="title">Projet / Exercices</div>
+            <a
+              :href="`/practices/${index}`"
+              v-for="(practice, index) in practices"
+              :key="index"
+            >
+              <LessonCard
+                :title="practice.title"
+                :desc="practice.description"
+                :lastUpdated="practice.lastUpdated"
+                :timeToRead="practice.timeToRead"
+              />
+            </a>
+            <div class="pagination">
+              <img class="svg" src="../assets/left-arrow-icon.svg" />
+              <span style="color: #0586ff">1</span> 2
+              <img class="svg" src="../assets/right-arrow-icon.svg" />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -114,11 +121,10 @@ onMounted(async () => {
 
   .content {
     display: flex;
-    justify-content: space-between;
+    gap: 0 58px;
     margin-top: 16px;
 
     .title {
-      margin-bottom: 20px;
       font-weight: 700;
       font-size: 22px;
     }

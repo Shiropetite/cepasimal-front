@@ -29,7 +29,7 @@ const toggleDark = useToggle(isDark);
   background: #f5f5f5;
   position: relative;
   margin-left: 12px;
-  transition: all 0.25s;
+  //transition: all 0.25s;
 }
 
 input[type="checkbox"] {
