@@ -1,8 +1,14 @@
 <script setup lang="ts">
 import { onMounted, ref, type Ref } from "vue";
+import { useRoute } from "vue-router";
+
 import LessonCard from "@/components/LessonCard.vue";
+import TechMenu from "./components/TechMenu.vue";
+
 import { getLessonsByTech, getPracticesByTech } from "@/services/LessonService";
 import type { Lesson } from "@/models/Lesson";
+
+const route = useRoute();
 
 const lessons: Ref<Lesson[]> = ref([]);
 const practices: Ref<Lesson[]> = ref([]);
@@ -15,20 +21,23 @@ onMounted(async () => {
 
 <template>
   <div>
-    <div class="banner">Le java c'est pas si mal (promis)</div>
+    <div class="banner">
+      Le {{ route.query.tech ?? "dev" }}, c'est pas si mal (promis)
+    </div>
 
     <div class="selection row justify-center">
       <div class="page">
         <div class="row items-center justify-between">
-          <div class="techlist">
-            <div class="row items-center justify-between gap-12">
-              <img src="../assets/tech-icon.svg" />
-              Tout
-            </div>
-            <img src="../assets/down-arrow-icon.svg" />
-          </div>
+          <cep-dropdown-button
+            :label="route.query.tech ?? 'Tout'"
+            icon-left="/icons/tech.svg"
+            is-primary
+          >
+            <tech-menu />
+          </cep-dropdown-button>
+
           <div class="searchbar">
-            <img src="../assets/search-icon.svg" />
+            <img src="/icons/search.svg" />
             <div>Rechercher</div>
           </div>
         </div>
@@ -49,9 +58,9 @@ onMounted(async () => {
               />
             </a>
             <div class="pagination">
-              <img class="svg" src="../assets/left-arrow-icon.svg" />
+              <img class="svg" src="/icons/left-arrow.svg" />
               <span style="color: #0586ff">1</span> 2
-              <img class="svg" src="../assets/right-arrow-icon.svg" />
+              <img class="svg" src="/icons/right-arrow.svg" />
             </div>
           </div>
 
@@ -70,9 +79,9 @@ onMounted(async () => {
               />
             </a>
             <div class="pagination">
-              <img class="svg" src="../assets/left-arrow-icon.svg" />
+              <img class="svg" src="/icons/left-arrow.svg" />
               <span style="color: #0586ff">1</span> 2
-              <img class="svg" src="../assets/right-arrow-icon.svg" />
+              <img class="svg" src="/icons/right-arrow.svg" />
             </div>
           </div>
         </div>

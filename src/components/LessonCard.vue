@@ -17,11 +17,11 @@ defineProps<{
       </div>
       <div class="row items-center gap-28 mt-12">
         <div class="row items-center gap-8">
-          <img class="svg" src="../assets/update-icon.svg" />
+          <img class="svg" src="/icons/update.svg" />
           {{ lastUpdated }}
         </div>
         <div class="row items-center gap-8">
-          <img class="svg" src="../assets/duration-icon.svg" />
+          <img class="svg" src="/icons/duration.svg" />
           {{ timeToRead }}
         </div>
       </div>
