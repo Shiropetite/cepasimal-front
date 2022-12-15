@@ -1,30 +1,37 @@
 <template>
-  <div class="header">
-    <a href="/"><div class="title">Cépasimal</div></a>
+  <div class="header row justify-center">
+    <div class="page row justify-between items-center">
+      <a href="/"><div class="title">Cépasimal</div></a>
 
-    <div class="row items-center justify-between gap-28">
-      <toggle-button label="Dark mode" />
-      <a href="/">
+      <div class="row items-center justify-between gap-28">
+        <toggle-button label="Dark mode" />
         <button class="admin">
-          <img src="../assets/admin-icon.svg" />
+          <img class="svg" src="../assets/admin-icon.svg" />
           Admin
         </button>
-      </a>
+      </div>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
 .header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 40px;
+  position: fixed;
+  width: 100%;
+  background-color: var(--background);
+  padding: 0 20px;
   height: 80px;
 
   .title {
     font-weight: 700;
     font-size: 16px;
+    padding: 16px;
+    border-radius: 8px;
+    transition: all linear 0.2s;
+
+    &:hover {
+      background-color: var(--background-hover);
+    }
   }
 
   .admin {

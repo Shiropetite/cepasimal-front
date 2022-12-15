@@ -14,10 +14,6 @@
   display: flex;
   flex-direction: column;
   gap: 12px 0;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
   padding: 22px 40px;
   border-top: 2px solid var(--accent);
 }
