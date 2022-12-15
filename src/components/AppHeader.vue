@@ -6,7 +6,7 @@
       <div class="row items-center justify-between gap-28">
         <toggle-button label="Dark mode" />
         <button class="admin">
-          <img class="svg" src="../assets/admin-icon.svg" />
+          <img class="svg" src="/icons/admin.svg" />
           Admin
         </button>
       </div>

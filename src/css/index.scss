@@ -73,7 +73,17 @@ a {
   background-color: var(--background);
 }
 
-button {
-  cursor: pointer;
-}
+.list {
+  display: flex;
+  flex-direction: column;
 
+  .item {
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: all linear 0.2s;
+
+    &:hover {
+      background-color: var(--background-hover);
+    }
+  }
+}
