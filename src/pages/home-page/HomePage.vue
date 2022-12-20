@@ -1,22 +1,28 @@
 <script setup lang="ts">
-import { onMounted, ref, type Ref } from "vue";
+import { watch, ref, type Ref } from "vue";
 import { useRoute } from "vue-router";
 
 import LessonCard from "@/components/LessonCard.vue";
 import TechMenu from "./components/TechMenu.vue";
 
 import { getLessonsByTech, getPracticesByTech } from "@/services/LessonService";
-import type { Lesson } from "@/models/Lesson";
+import type { ApiOutput } from "@/models/ApiOutput";
 
 const route = useRoute();
 
-const lessons: Ref<Lesson[]> = ref([]);
-const practices: Ref<Lesson[]> = ref([]);
+const responseLessons: Ref<ApiOutput | undefined> = ref();
+const responsePractices: Ref<ApiOutput | undefined> = ref();
 
-onMounted(async () => {
-  lessons.value = await getLessonsByTech("java", 0);
-  practices.value = await getPracticesByTech("java", 0);
-});
+watch(
+  () => route.query.tech,
+  async (value) => {
+    responseLessons.value = await getLessonsByTech(value as string | undefined);
+    responsePractices.value = await getPracticesByTech(
+      value as string | undefined
+    );
+  },
+  { immediate: true }
+);
 </script>
 
 <template>
@@ -47,7 +53,7 @@ onMounted(async () => {
             <div class="title">Fiches</div>
             <a
               :href="`/lessons/${index}`"
-              v-for="(lesson, index) in lessons"
+              v-for="(lesson, index) in responseLessons?.lessons"
               :key="index"
             >
               <LessonCard
@@ -57,10 +63,32 @@ onMounted(async () => {
                 :timeToRead="lesson.timeToRead"
               />
             </a>
-            <div class="pagination">
-              <img class="svg" src="/icons/left-arrow.svg" />
-              <span style="color: #0586ff">1</span> 2
-              <img class="svg" src="/icons/right-arrow.svg" />
+            <div
+              class="no-content"
+              v-if="responseLessons?.lessons.length === 0"
+            >
+              Aucune fiches disponibles
+            </div>
+
+            <div class="pagination" v-if="responseLessons?.count">
+              <img
+                v-if="route.query.pageL && Number.parseInt(route.query.pageL as string) > 1"
+                class="svg"
+                src="/icons/left-arrow.svg"
+              />
+              <span
+                v-for="(page, index) in responseLessons?.pages"
+                :key="page"
+                :class="{
+                  selected: (route.query.pageP && Number.parseInt(route.query.pageP as string) === (index + 1)) || index === 0
+                }"
+                >{{ index + 1 }}</span
+              >
+              <img
+                v-if="route.query.pageL && Number.parseInt(route.query.pageL as string) === responseLessons?.pages"
+                class="svg"
+                src="/icons/right-arrow.svg"
+              />
             </div>
           </div>
 
@@ -68,7 +96,7 @@ onMounted(async () => {
             <div class="title">Projet / Exercices</div>
             <a
               :href="`/practices/${index}`"
-              v-for="(practice, index) in practices"
+              v-for="(practice, index) in responsePractices?.lessons"
               :key="index"
             >
               <LessonCard
@@ -78,10 +106,32 @@ onMounted(async () => {
                 :timeToRead="practice.timeToRead"
               />
             </a>
-            <div class="pagination">
-              <img class="svg" src="/icons/left-arrow.svg" />
-              <span style="color: #0586ff">1</span> 2
-              <img class="svg" src="/icons/right-arrow.svg" />
+            <div
+              class="no-content"
+              v-if="responsePractices?.lessons.length === 0"
+            >
+              Aucune fiches disponibles
+            </div>
+
+            <div class="pagination" v-if="responsePractices?.count">
+              <img
+                v-if="route.query.pageP && Number.parseInt(route.query.pageP as string) > 1"
+                class="svg"
+                src="/icons/left-arrow.svg"
+              />
+              <span
+                v-for="(page, index) in responsePractices?.pages"
+                :key="page"
+                :class="{
+                  selected: (route.query.pageP && Number.parseInt(route.query.pageP as string) === (index + 1)) || index === 0
+                }"
+                >{{ index + 1 }}</span
+              >
+              <img
+                v-if="route.query.pageP && Number.parseInt(route.query.pageP as string) === responsePractices?.pages"
+                class="svg"
+                src="/icons/right-arrow.svg"
+              />
             </div>
           </div>
         </div>
@@ -100,6 +150,18 @@ onMounted(async () => {
   background: var(--accent);
   font-weight: 700;
   font-size: 22px;
+}
+
+.no-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+  font-size: 16px;
+}
+
+.selected {
+  color: var(--primary);
 }
 
 .selection {
