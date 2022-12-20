@@ -1,6 +1,6 @@
 <template>
   <div class="header row justify-center">
-    <div class="page row justify-between items-center">
+    <div class="container page row justify-between items-center">
       <a href="/"><div class="title">Cépasimal</div></a>
 
       <div class="row items-center justify-between gap-28">
@@ -19,8 +19,11 @@
   position: fixed;
   width: 100%;
   background-color: var(--background);
-  padding: 0 20px;
   height: 80px;
+
+  .container {
+    padding: 0 20px;
+  }
 
   .title {
     font-weight: 700;

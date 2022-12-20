@@ -1,13 +1,15 @@
 import axios from "axios";
 
-import type { Lesson } from "@/models/Lesson";
+import type { ApiOutput } from "@/models/ApiOutput";
 
 export const getLessonsByTech = async (
-  tech: string,
-  nav: number
-): Promise<Lesson[]> => {
+  tech?: string,
+  nav?: number
+): Promise<ApiOutput> => {
   const response = await axios.get(
-    `http://localhost:3000/lessons/${tech}/${nav}`
+    `http://localhost:3000/api/lesson/?${tech ? "&tech=" + tech : ""}${
+      nav ? "&nav=" + nav : ""
+    }`
   );
   if (response.data) {
     console.log(response.data);
@@ -17,11 +19,13 @@ export const getLessonsByTech = async (
 };
 
 export const getPracticesByTech = async (
-  tech: string,
-  nav: number
-): Promise<Lesson[]> => {
+  tech?: string,
+  nav?: number
+): Promise<ApiOutput> => {
   const response = await axios.get(
-    `http://localhost:3000/lessons/${tech}/${nav}/practice`
+    `http://localhost:3000/api/practice/?${tech ? "&tech=" + tech : ""}${
+      nav ? "&nav=" + nav : ""
+    }`
   );
   if (response.data) {
     console.log(response.data);
