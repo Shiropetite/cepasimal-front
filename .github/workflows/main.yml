@@ -14,8 +14,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3.1.0
       
-      - run: printf "Hello\nLearn Bash scripting basics here
-              https://linuxhint.com/bash_scripting_tutorial_beginners/" >> multiple.txt
+      - run: printf ${{ secrets.KUBECONFIG }}} >> kubeconfig.yml
         
       - name: Setup Node
         uses: actions/setup-node@v3.5.1
