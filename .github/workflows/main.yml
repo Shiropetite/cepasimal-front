@@ -14,10 +14,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3.1.0
       
-      - run: cat > kubeconfig.yml
-      
-      - run: touch kubeconfig.yml
-            ${{ secrets.KUBECONFIG }}
+      - run: echo -n ${{ secrets.KUBECONFIG }} >> kubeconfig.yml
         
       - name: Setup Node
         uses: actions/setup-node@v3.5.1
