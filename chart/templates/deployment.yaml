@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: 4al1-groupe-9
+  name: frontend-deployment-4al1-groupe-9
+  labels: 
+    app: frontend-4al1-groupe-9
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: frontend-4al1-groupe-9
+  template:
+    metadata:
+      labels:
+        app: frontend-4al1-groupe-9
+    spec:
+      containers:
+      - name: frontend-container-4al1-groupe-9
+        image: titeshi/cepasimal-front:1.0.1
+        ports:
+        - containerPort: {{ .Values.ports.container }}
+

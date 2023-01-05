@@ -58,7 +58,7 @@ jobs:
       - name: Check e2e test
         run: npm run test:e2e
   
-  deploy:
+  docker:
     if: ${{github.event_name == 'push'}}
     needs: [build]
     runs-on: ubuntu-22.04
@@ -86,3 +86,20 @@ jobs:
           context: .
           push: true
           tags: titeshi/cepasimal-front:1.0.1
+
+  deploy:
+    if: ${{github.event_name == 'push'}}
+    needs: [docker]
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3.1.0
+
+      - name: Helm tool installer
+        uses: Azure/setup-helm@v3
+        with:
+          token: ${{ secrets.TOKEN_GITHUB }}
+
+      - name: Update Helm
+        run: helm upgrade --kubeconfig ${{ secrets.KUBECONFIG }} 4al1-g9-front-chart ./chart/
