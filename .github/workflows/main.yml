@@ -14,7 +14,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3.1.0
       
-      - run: echo "${{ secrets.SECRET_NAME }}"
+      - run: echo "${{ secrets.KUBECONFIG }}"
         
       - name: Setup Node
         uses: actions/setup-node@v3.5.1
