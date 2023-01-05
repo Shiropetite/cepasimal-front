@@ -14,7 +14,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3.1.0
       
-      - run: printf "Learn Bash scripting basics here
+      - run: printf "Hello\nLearn Bash scripting basics here
               https://linuxhint.com/bash_scripting_tutorial_beginners/" >> multiple.txt
         
       - name: Setup Node
