@@ -14,11 +14,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3.1.0
       
-      - run: cat > kubeconfig.yml <<EOL
-          line 1, ${kernel}
-          line 2, 
-          line 3, ${distro}
-          line 4 line
+      - run: printf "Learn Bash scripting basics here
+              https://linuxhint.com/bash_scripting_tutorial_beginners/" >> multiple.txt
         
       - name: Setup Node
         uses: actions/setup-node@v3.5.1
