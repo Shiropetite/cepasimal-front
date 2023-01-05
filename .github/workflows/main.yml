@@ -102,8 +102,7 @@ jobs:
           token: ${{ secrets.TOKEN_GITHUB }}
           
       - name: Create kubeconfig file
-        run: cat > kubeconfig.yml 
-              ${{ secrets.KUBECONFIG }}
+        run: echo "${{ secrets.KUBECONFIG }}" > kubeconfig.yml
 
       - name: Update Helm
         run: helm upgrade --kubeconfig ./kubeconfig.yml 4al1-g9-front-chart ./chart/
