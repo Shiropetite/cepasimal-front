@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: frontend-container-4al1-groupe-9
-        image: titeshi/cepasimal-front:1.0.1
+        image: titeshi/cepasimal-front:1.0.2
         ports:
         - containerPort: {{ .Values.ports.container }}
 
