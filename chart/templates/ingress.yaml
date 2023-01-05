@@ -1,0 +1,40 @@
+apiVersion: networking.k8s.io/v1
+kind: IngressClass
+metadata:
+  namespace: 4al1-groupe-9
+  labels:
+    app.kubernetes.io/component: controller
+  name: external-lb-front
+  annotations:
+    ingressclass.kubernetes.io/is-default-class: "true"
+spec:
+  controller: k8s.io/ingress-nginx
+
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  namespace: 4al1-groupe-9
+  name: frontend-ingress-4al1-groupe-9
+  annotations: 
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    cart-manager.io/issuer: "letsencrypt-staging"
+spec:
+  ingressClassName: external-lb-front
+  tls: 
+    - hosts:
+        - frontend.al1.groupe9.jbienvenu.fr
+      secretName: frontend-tls-4al1-groupe-9
+  rules:
+  - host: frontend.al1.groupe9.jbienvenu.fr
+    http: 
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: frontend-service-4al1-groupe-9
+            port: 
+              number: {{ .Values.ports.ingress }}
+

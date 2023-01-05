@@ -1,0 +1,3 @@
+ports: 
+  container: 80
+  ingress: 54355
