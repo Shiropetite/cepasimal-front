@@ -13,10 +13,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3.1.0
-        
-      - run: cat > kubeconfig.yml
       
-      - run: ls
+      - run: cat > kubeconfig.yml <<EOL
+          line 1, ${kernel}
+          line 2, 
+          line 3, ${distro}
+          line 4 line
         
       - name: Setup Node
         uses: actions/setup-node@v3.5.1
