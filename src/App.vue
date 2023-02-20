@@ -5,7 +5,7 @@ import AppFooter from "@/components/AppFooter.vue";
 
 <template>
   <app-header />
-  <router-view class="inside" v-slot="{ Component }" >
+  <router-view class="inside" v-slot="{ Component }">
     <transition name="fade">
       <component :is="Component" />
     </transition>
