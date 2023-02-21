@@ -2,6 +2,7 @@
 
 describe("Home page", () => {
   it("visits the app root url", () => {
-    cy.visit("/");
+    cy.visit("/hello");
+    cy.get("h1").contains("Hello world");
   });
 });

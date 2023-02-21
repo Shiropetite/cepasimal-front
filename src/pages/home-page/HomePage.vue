@@ -16,10 +16,16 @@ const responsePractices: Ref<ApiOutput | undefined> = ref();
 watch(
   () => route.query.tech,
   async (value) => {
-    responseLessons.value = await getLessonsByTech(value as string | undefined);
-    responsePractices.value = await getPracticesByTech(
-      value as string | undefined
-    );
+    const resLessons = await getLessonsByTech(value as string | undefined);
+    const resPractices = await getPracticesByTech(value as string | undefined);
+
+    if (resLessons) {
+      responseLessons.value = resLessons;
+    }
+
+    if (resPractices) {
+      responsePractices.value = resPractices;
+    }
   },
   { immediate: true }
 );
