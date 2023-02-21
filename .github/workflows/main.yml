@@ -78,14 +78,14 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4.1.1
         with:
-          images: titeshi/cepasimal-front:1.0.2
+          images: titeshi/cepasimal-front:1.0.3
       
       - name: Build and push Docker image
         uses: docker/build-push-action@v3
         with:
           context: .
           push: true
-          tags: titeshi/cepasimal-front:1.0.2
+          tags: titeshi/cepasimal-front:1.0.3
 
   deploy:
     if: ${{github.event_name == 'push'}}
