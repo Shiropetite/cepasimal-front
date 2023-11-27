@@ -1,7 +1,7 @@
-import AppHeader from "../AppHeader.vue";
+import AppHeader from '../AppHeader.vue';
 
-describe("AppHeader", () => {
-  it("renders correctly", () => {
+describe('AppHeader', () => {
+  it('renders correctly', () => {
     cy.mount(AppHeader);
   });
 });

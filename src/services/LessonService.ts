@@ -1,18 +1,10 @@
-import axios from "axios";
+import axios from 'axios';
 
-import type { ApiOutput } from "@/models/ApiOutput";
+import type { ApiOutput } from 'src/models/ApiOutput';
 
-export const getLessonsByTech = async (
-  tech?: string,
-
-  nav?: number
-): Promise<ApiOutput | null> => {
+export const getLessonsByTech = async (tech?: string, nav?: number): Promise<ApiOutput | null> => {
   const response = await axios
-    .get(
-      `https://backend.al1.groupe9.jbienvenu.fr/api/lesson/?${
-        tech ? "&tech=" + tech : ""
-      }${nav ? "&nav=" + nav : ""}`
-    )
+    .get(`http://localhost:3000/api/lesson/?${tech ? '&tech=' + tech : ''}${nav ? '&nav=' + nav : ''}`)
     .catch(() => null);
 
   if (response) {
@@ -22,16 +14,9 @@ export const getLessonsByTech = async (
   return response;
 };
 
-export const getPracticesByTech = async (
-  tech?: string,
-  nav?: number
-): Promise<ApiOutput | null> => {
+export const getPracticesByTech = async (tech?: string, nav?: number): Promise<ApiOutput | null> => {
   const response = await axios
-    .get(
-      `https://backend.al1.groupe9.jbienvenu.fr/api/practice/?${
-        tech ? "&tech=" + tech : ""
-      }${nav ? "&nav=" + nav : ""}`
-    )
+    .get(`http://localhost:3000/api/practice/?${tech ? '&tech=' + tech : ''}${nav ? '&nav=' + nav : ''}`)
     .catch(() => null);
 
   if (response) {

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref } from 'vue';
 
 defineProps<{
   label?: string;
@@ -28,11 +28,7 @@ const showDropdown = ref(false);
     />
 
     <transition name="fade">
-      <div
-        v-if="showDropdown"
-        class="dropdown-menu"
-        @click="showDropdown = !showDropdown"
-      >
+      <div v-if="showDropdown" class="dropdown-menu" @click="showDropdown = !showDropdown">
         <slot />
       </div>
     </transition>

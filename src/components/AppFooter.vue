@@ -1,8 +1,7 @@
 <template>
   <div class="footer">
     <div>
-      Ce site web a pour but de vous aider à apprendre certains langages à
-      l'aide de fiches et d'exercices / projets
+      Ce site web a pour but de vous aider à apprendre certains langages à l'aide de fiches et d'exercices / projets
     </div>
     <div>Informations sur nous</div>
     <div>Signaler une erreur</div>

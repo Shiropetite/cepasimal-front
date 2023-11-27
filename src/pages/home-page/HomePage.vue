@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { watch, ref, type Ref } from "vue";
-import { useRoute } from "vue-router";
+import { watch, ref, type Ref } from 'vue';
+import { useRoute } from 'vue-router';
 
-import LessonCard from "@/components/LessonCard.vue";
-import TechMenu from "./components/TechMenu.vue";
+import LessonCard from 'src/components/LessonCard.vue';
+import TechMenu from './components/TechMenu.vue';
 
-import { getLessonsByTech, getPracticesByTech } from "@/services/LessonService";
-import type { ApiOutput } from "@/models/ApiOutput";
+import { getLessonsByTech, getPracticesByTech } from 'src/services/LessonService';
+import type { ApiOutput } from 'src/models/ApiOutput';
 
 const route = useRoute();
 
@@ -27,24 +27,18 @@ watch(
       responsePractices.value = resPractices;
     }
   },
-  { immediate: true }
+  { immediate: true },
 );
 </script>
 
 <template>
   <div>
-    <div class="banner">
-      Le {{ route.query.tech ?? "dev" }}, c'est pas si mal (promis)
-    </div>
+    <div class="banner">Le {{ route.query.tech ?? 'dev' }}, c'est pas si mal (promis)</div>
 
     <div class="selection row justify-center">
       <div class="page">
         <div class="row items-center justify-between">
-          <cep-dropdown-button
-            :label="route.query.tech ?? 'Tout'"
-            icon-left="/icons/tech.svg"
-            is-primary
-          >
+          <cep-dropdown-button :label="route.query.tech ?? 'Tout'" icon-left="/icons/tech.svg" is-primary>
             <tech-menu />
           </cep-dropdown-button>
 
@@ -57,11 +51,7 @@ watch(
         <div class="content wrap">
           <div class="column col-md-6" style="gap: 16px">
             <div class="title">Fiches</div>
-            <a
-              :href="`/lessons/${index}`"
-              v-for="(lesson, index) in responseLessons?.lessons"
-              :key="index"
-            >
+            <a :href="`/lessons/${index}`" v-for="(lesson, index) in responseLessons?.lessons" :key="index">
               <LessonCard
                 :title="lesson.title"
                 :desc="lesson.description"
@@ -69,12 +59,7 @@ watch(
                 :timeToRead="lesson.timeToRead"
               />
             </a>
-            <div
-              class="no-content"
-              v-if="responseLessons?.lessons.length === 0"
-            >
-              Aucune fiches disponibles
-            </div>
+            <div class="no-content" v-if="responseLessons?.lessons.length === 0">Aucune fiches disponibles</div>
 
             <div class="pagination" v-if="responseLessons?.count">
               <img
@@ -86,7 +71,8 @@ watch(
                 v-for="(page, index) in responseLessons?.pages"
                 :key="page"
                 :class="{
-                  selected: (route.query.pageP && Number.parseInt(route.query.pageP as string) === (index + 1)) || index === 0
+                  selected:
+                    (route.query.pageP && Number.parseInt(route.query.pageP as string) === index + 1) || index === 0,
                 }"
                 >{{ index + 1 }}</span
               >
@@ -100,11 +86,7 @@ watch(
 
           <div class="column col-md-6" style="gap: 16px">
             <div class="title">Projet / Exercices</div>
-            <a
-              :href="`/practices/${index}`"
-              v-for="(practice, index) in responsePractices?.lessons"
-              :key="index"
-            >
+            <a :href="`/practices/${index}`" v-for="(practice, index) in responsePractices?.lessons" :key="index">
               <LessonCard
                 :title="practice.title"
                 :desc="practice.description"
@@ -112,12 +94,7 @@ watch(
                 :timeToRead="practice.timeToRead"
               />
             </a>
-            <div
-              class="no-content"
-              v-if="responsePractices?.lessons.length === 0"
-            >
-              Aucune fiches disponibles
-            </div>
+            <div class="no-content" v-if="responsePractices?.lessons.length === 0">Aucune fiches disponibles</div>
 
             <div class="pagination" v-if="responsePractices?.count">
               <img
@@ -129,7 +106,8 @@ watch(
                 v-for="(page, index) in responsePractices?.pages"
                 :key="page"
                 :class="{
-                  selected: (route.query.pageP && Number.parseInt(route.query.pageP as string) === (index + 1)) || index === 0
+                  selected:
+                    (route.query.pageP && Number.parseInt(route.query.pageP as string) === index + 1) || index === 0,
                 }"
                 >{{ index + 1 }}</span
               >
@@ -180,8 +158,8 @@ watch(
     width: 202px;
     padding: 12px;
     color: white;
-    background: $primary;
-    border: 2px solid $primary;
+    background: var(--primary);
+    border: 2px solid var(--primary);
     border-radius: 8px;
   }
 
